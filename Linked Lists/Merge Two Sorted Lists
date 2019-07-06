@@ -1,0 +1,56 @@
+/*
+
+Merge two sorted linked lists and return it as a new list.
+The new list should be made by splicing together the nodes of the first two lists, and should also be sorted.
+
+For example, given following linked lists :
+
+  5 -> 8 -> 20 
+  4 -> 11 -> 15
+
+The merged list should be :
+
+4 -> 5 -> 8 -> 11 -> 15 -> 20
+
+*/
+
+/*
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+ 
+ListNode* Solution::mergeTwoLists(ListNode* A, ListNode* B) {
+    ListNode* ans = new ListNode(0);
+    ListNode* temp=ans;
+    while(A!=NULL && B!=NULL)
+    {
+        if(A->val<B->val)
+        {
+            ans->next=A;
+            A=A->next;
+        }
+        else
+        {
+            ans->next=B;
+            B=B->next;
+        }
+        ans=ans->next;
+    }
+    while(A!=NULL)
+    {
+        ans->next=A;
+        A=A->next;
+        ans=ans->next;
+    }
+    while(B!=NULL)
+    {
+        ans->next=B;
+        B=B->next;
+        ans=ans->next;
+    }
+    return temp->next;
+}
