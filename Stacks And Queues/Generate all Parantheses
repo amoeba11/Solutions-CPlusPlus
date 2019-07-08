@@ -1,0 +1,44 @@
+/*
+
+Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+The brackets must close in the correct order, "()" and "()[]{}" are all valid but "(]" and "([)]" are not.
+
+Return 0 / 1 ( 0 for false, 1 for true ) for this problem
+
+*/
+
+/* 
+The opening and closing brackets of a particular type will be together for true.
+Otherwise it is false.
+*/
+int Solution::isValid(string A) {
+    stack <char> s1;
+    for(int i=0; i<A.length(); i++)
+    {
+        if(A[i]=='(' || A[i]=='{' || A[i]=='[')
+        {
+            s1.push(A[i]);
+        }
+        else if(A[i]==')')
+        {
+            if(s1.empty()) return 0;
+            else if(s1.top()!='(') return 0;
+            s1.pop();
+        }
+        else if(A[i]=='}')
+        {
+            if(s1.empty()) return 0;
+            else if(s1.top()!='{') return 0;
+            s1.pop();
+        }
+        else if(A[i]==']')
+        {
+            if(s1.empty()) return 0;
+            else if(s1.top()!='[') return 0;
+            s1.pop();
+        }       
+    }
+    if(s1.empty()) return 1; //Considering case like '{{}' . 
+    else return 0;
+}
