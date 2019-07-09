@@ -1,3 +1,22 @@
+## Moon tacos are way better than those on Earth.
+# We should shift to moon.
+# Stay hydrated.
+
+
+# Oh yes, see if the repository helps :
+
+***   **https://github.com/amoeba11**    ***
+***   **https://github.com/amoeba11**    ***
+***   **https://github.com/amoeba11**    ***
+***   **https://github.com/amoeba11**    ***
+***   **https://github.com/amoeba11**    ***
+    
+    
+# No fake moon landings this time.
+# GOOD LUCK. :)
+
+
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/amoeba11/interviewbit/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
