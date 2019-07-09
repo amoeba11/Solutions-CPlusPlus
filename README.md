@@ -1,6 +1,6 @@
 ## Moon tacos are way better than those on Earth.
-# We should shift to moon.
-# Stay hydrated.
+## We should shift to moon.
+## Stay hydrated.
 
 
 # Oh yes, see if the repository helps :
@@ -12,7 +12,7 @@
 ***   **https://github.com/amoeba11**    ***
     
     
-# No fake moon landings this time.
+### No fake moon landings this time.
 # GOOD LUCK. :)
 
 
