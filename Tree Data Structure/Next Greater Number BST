@@ -1,0 +1,73 @@
+/*
+
+Given a BST node, return the node which has value just greater than the given node.
+
+Example:
+
+Given the tree
+
+               100
+              /   \
+            98    102
+           /  \
+         96    99
+          \
+           97
+
+Given 97, you should return the node corresponding to 98 as thats the value just greater than 97 in the tree.
+If there are no successor in the tree ( the value is the largest in the tree, return NULL).
+
+Using recursion is not allowed.
+
+Assume that the value is always present in the tree.
+
+*/
+
+/**
+ * Definition for binary tree
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+ 
+TreeNode* Solution::getSuccessor(TreeNode* A, int B) {
+    TreeNode* succ=NULL;
+    while(A!=NULL)
+    {
+        if(A->val>B)
+        {
+            succ=A;
+            A=A->left;
+        }
+        else if(A->val<B) A=A->right;
+        else
+        {
+            if(A->right!=NULL)
+            {
+                if(A->right->left==NULL) return A->right;
+                succ=A->right;
+                TreeNode* head = A->right;
+                while(head->left!=NULL)
+                {
+                    head=head->left;
+                }
+                if(head->val<succ->val) return head;
+            }
+            else 
+            {
+                if(succ!=NULL && succ->val>A->val) return succ;
+                else return NULL;
+            }
+            break;
+        }
+    }
+    return succ;
+    // Do not write main() function.
+    // Do not read input, instead use the arguments to the function.
+    // Do not print the output, instead return values as specified
+    // Still have a doubt. Checkout www.interviewbit.com/pages/sample_codes/ for more details
+}
+
