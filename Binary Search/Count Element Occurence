@@ -1,0 +1,48 @@
+/*
+
+Given a sorted array of integers, find the number of occurrences of a given target value.
+Your algorithm’s runtime complexity must be in the order of O(log n).
+If the target is not found in the array, return 0
+
+**Example : **
+Given [5, 7, 7, 8, 8, 10] and target value 8,
+return 2.
+
+*/
+
+int Solution::findCount(const vector<int> &A, int B) {
+    // std::vector<int>::iterator low = lower_bound(A.begin(),A.end(), B);
+    // std::vector<int>::iterator high = upper_bound(A.begin(),A.end(), B);
+    // int ans = high - low;
+    // return ans;
+    int start=0;
+    int end=A.size()-1;
+    int count=0;
+    int flag=-1;
+    while(start<=end)
+    {
+        int mid = start + (end-start)/2;
+        if(A[mid]==B){
+            flag=mid;
+            count++;
+            break;
+        }
+        else if(A[mid]>B)
+        {
+            end=mid-1;
+        }
+        else start=mid+1;
+    }
+    if(flag==-1) return 0;
+    for(int i=flag+1; i<=end; i++)
+    {
+        if(A[i]==B) count++;
+        else break;
+    }
+    for(int i=flag-1; i>=start; i--)
+    {
+        if(A[i]==B) count++;
+        else break;
+    }
+    return count;
+}
