@@ -1,0 +1,43 @@
+/*
+Two friends Kunal and Satyam are playing an interesting game. They take turns drawing a ball from a bag which initially contains R red balls and G green balls. Each player draws a ball alternatively and never put it back. The person who is the first to draw a red balls wins. Satyam always draws first. If there are no more balls in the bag and nobody has drawn a red ball, the satyam wins.
+
+What is the probability of the Satyam winning?
+Input:
+The first line will contain the number of test cases T.
+The first line of each test case will contain a number R (number of red balls) and G(number of green balls )
+
+Output 
+For each testcase, print the desired probability.
+Constraints:
+1<=T<=10
+0<=R,G<=10^3
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int r, g;
+        cin>>r>>g;
+        double ans = 0;
+        if(r==0 || g==0) cout<<fixed<<setprecision(6)<<(double)1<<"\n";
+        else{
+            double c = 1.0 ;
+            while(r>0 && g>=0)
+            {
+                double t = r + g;
+                ans += (c*r/t);
+                c *= (g*(g-1))/(t*(t-1));
+                g-=2;
+                t-=2;
+            }
+            cout<<fixed<<setprecision(6)<<(double)ans<<"\n";
+        }
+    }
+    return 0;
+}
